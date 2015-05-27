@@ -15,11 +15,12 @@ module.exports.insertLocation = function insertLocation(data) {
 
 };
 
-module.exports.selectLocation = function selectLocation(param) {
-	console.log('param : ' + param);
-	// 저장된 위치 정보 조회
-	client.query('SELECT * FROM locations WHERE name = ?', param, function(err, data) {
-		console.log('data : ' + data);
-		return '100';
-	});
-};
+// index.js로 데이터 리턴 방식 구현 해야함.
+// module.exports.selectLocation = function selectLocation(param) {
+// 	console.log('param : ' + param);
+// 	// 저장된 위치 정보 조회
+// 	client.query('SELECT * FROM locations WHERE name = ?', param, function(err, data) {
+// 		console.log('data : ' + data);
+// 		return '100';
+// 	});
+// };
