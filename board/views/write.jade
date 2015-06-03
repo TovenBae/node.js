@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/board/write", method="post" onsubmit="return onWriteSubmit()")
+    table(board="1")
+      tr
+        td 작성자
+        td
+          input#creator_id(type="text", name="creator_id" required)
+      tr
+        td 제목
+        td
+          input#title(type="text", name="title" required)
+      tr
+        td 내용
+        td
+          textarea#content(name="content" cols="30" rows="10" required)
+      tr
+        td 패스워드
+        td
+          input#passwd(type="password", name="passwd" required)
+      tr
+        td(colspan="2")
+          button(type="submit") 글쓰기
+  script(type="text/javascript").
+    function onWriteSubmit()
+    {
+        if ( $("#creator_id").val().trim() == "" )
+        {
+            var message = "아이디를 입력해 주세요";
+            $("#creator_id").val("");
+            $("#creator_id").focus();
+            alert(message);
+            return false;
+        }
+
+        if ( $("#title").val().trim() == "" )
+        {
+            var message = "제목을 입력해 주세요";
+            $("#title").val("");
+            $("#title").focus();
+            alert(message);
+            return false;
+        }
+
+        if ( $("#content").val().trim() == "" )
+        {
+            var message = "본문 내용을 입력해 주세요";
+            $("#content").val("");
+            $("#content").focus();
+            alert(message);
+            return false;
+        }
+
+        if ( $("#passwd").val().trim() == "" )
+        {
+            var message = "패스워드를 입력해 주세요";
+            $("#passwd").val("");
+            $("#passwd").focus();
+            alert(message);
+            return false;
+        }
+    }            

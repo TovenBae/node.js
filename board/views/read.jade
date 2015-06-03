@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/board/update", method="get")
+    table(border="1")
+      input#idx(type="hidden", name="idx" value="#{row.idx}")
+      tr
+        td 작성자
+        td= row.creator_id
+      tr
+        td 제목
+        td= row.title
+      tr
+        td 내용
+        td= row.content
+      tr
+        td 변경일
+        td= row.modidate
+      tr
+        td 조회수
+        td= row.hit
+      tr
+        td(colspan="2")
+          button(type="submit") 글수정
+          a(href="/board") 리스트로 돌아가기

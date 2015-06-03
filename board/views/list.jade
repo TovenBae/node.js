@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  a(href="/board/write") 글쓰기로 이동
+  br
+  br
+  table(border="1")
+    tr
+      td 번호
+      td 작성자
+      td 제목
+      td 조회수
+      td 변경일
+    - for item in rows
+      tr
+        td= item.idx
+        td= item.creator_id
+        td
+          a(href="/board/read/#{item.idx}")= item.title
+        td= item.hit
+        td= item.modidate
